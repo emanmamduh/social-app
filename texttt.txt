@@ -1,0 +1,441 @@
+     <div className="bg-[#ededed] col-span-5 flex flex-col  justify-center p-7 py-8 ">
+          <div className=" ">
+            <h2 className="text-[#0E0E10] text-center font-bold text-3xl">
+              Sign Up
+            </h2>
+            {errorMsg == "user already exists." ? (
+              <p className="bg-red-500/70 text-white rounded-xl mt-1.5 p-2 w-[80%] mx-auto">
+                {errorMsg}
+              </p>
+            ) : (
+              ""
+            )}
+
+            <div className="container w-[85%] mx-auto px-5">
+              <form onSubmit={handleSubmit(submitForm)}>
+                <div className="name my-5">
+                  <Input
+                    {...register("name")}
+                    name="name"
+                    type="text"
+                    aria-label="name"
+                    className="w-full h-12 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent"
+                    // className="w-full my-3 rounded-xl p-6"
+                    placeholder="Enter your name"
+                  />
+                  {formState.errors.name ? (
+                    <p className="text-red-700 text-start">
+                      {formState.errors.name.message}
+                    </p>
+                  ) : (
+                    ""
+                  )}
+                </div>
+                <div className="username my-5">
+                  <Input
+                    {...register("username")}
+                    name="username"
+                    type="text"
+                    aria-label="username"
+                    className="w-full h-12 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent"
+                    // className="w-full my-3 rounded-xl p-6"
+                    placeholder="Enter your username"
+                  />
+                  {formState.errors.username ? (
+                    <p className="text-red-700 text-start">
+                      {formState.errors.username.message}
+                    </p>
+                  ) : (
+                    ""
+                  )}
+                </div>
+                <div className="email my-5">
+                  {/* <Input
+                    {...register("email")}
+                    name="email"
+                    type="email"
+                    aria-label="Email"
+                    className="w-full my-3 rounded-xl p-6"
+                    placeholder="ex@gmail.com"
+                  /> */}
+                  <Input
+                    {...register("email")}
+                    name="email"
+                    type="email"
+                    aria-label="Email"
+                    // className="w-full my-5 p-5"
+                    className="w-full h-12 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent"
+                    placeholder="Email Address"
+                  />
+                  {formState.errors.email ? (
+                    <p className="text-red-700 text-start">
+                      {formState.errors.email.message}
+                    </p>
+                  ) : (
+                    ""
+                  )}
+                </div>
+                <div className="password my-5">
+                  <Input
+                    {...register("password")}
+                    name="password"
+                    type="text"
+                    aria-label="password"
+                    className="w-full h-12 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent"
+                    // className="w-full my-3 rounded-xl p-6"
+                    placeholder="Enter your password"
+                  />
+                  {formState.errors.password ? (
+                    <p className="text-red-700 text-start">
+                      {formState.errors.password.message}
+                    </p>
+                  ) : (
+                    ""
+                  )}
+                </div>
+                <div className="re-password my-5">
+                  <Input
+                    {...register("rePassword")}
+                    name="rePassword"
+                    type="text"
+                    aria-label="rePassword"
+                    className="w-full h-12 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent"
+                    // className="w-full my-3 rounded-xl p-6"
+                    placeholder="re-write your password"
+                  />
+                  {formState.errors.rePassword ? (
+                    <p className="text-red-700 text-start">
+                      {formState.errors.rePassword.message}
+                    </p>
+                  ) : (
+                    ""
+                  )}
+                </div>
+                <div className="dateOfBirth my-5">
+                  <Input
+                    {...register("dateOfBirth")}
+                    name="dateOfBirth"
+                    type="date"
+                    aria-label="dateOfBirth rounded-lg p-6"
+                    className="w-full h-12 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent"
+                    // className="w-full my-4 text-[#71717a] rounded-lg p-6"
+                    placeholder=""
+                  />
+                  {formState.errors.dateOfBirth ? (
+                    <p className="text-red-700 text-start">
+                      {formState.errors.dateOfBirth.message}
+                    </p>
+                  ) : (
+                    ""
+                  )}
+                </div>
+
+                <div className="gender flex gap-3">
+                  <div className="gender-male text-start ">
+                    <input
+                      {...register("gender")}
+                      id="male"
+                      name="gender"
+                      value="male"
+                      type="radio"
+                      aria-label="male"
+                      className=" text-[#71717a]  focus:border focus:border-blue-400 rounded-lg p-6"
+                    />
+                    {formState.errors.gender ? (
+                      <p className="text-red-700 text-start">
+                        {formState.errors.gender.message}
+                      </p>
+                    ) : (
+                      ""
+                    )}
+                    <label className="ms-1" htmlFor="male">
+                      Male
+                    </label>
+                  </div>
+                  <div className="gender-female text-start">
+                    <input
+                      {...register("gender")}
+                      id="female"
+                      name="gender"
+                      value="female"
+                      type="radio"
+                      aria-label="female"
+                      className=" text-[#71717a] "
+                    />
+                    {formState.errors.gender ? (
+                      <p className="text-red-700 text-start">
+                        {formState.errors.gender.message}
+                      </p>
+                    ) : (
+                      ""
+                    )}
+                    <label className="ms-1" htmlFor="female">
+                      female
+                    </label>
+                  </div>
+                </div>
+                <div class="form-group mt-4 flex items-center">
+                  <input type="checkbox" id="terms" name="terms" required />
+                  <label for="terms" className="ms-2">
+                    I agree to the <a href="#">Terms and Conditions</a>
+                  </label>
+                  <span class="error-message" id="termsError"></span>
+                </div>
+
+                <Button
+                  type="submit"
+                  className="w-full h-12 mt-3 bg-[#F6A940] hover:bg-blue over:bg-[#FF8904] hover:bg-[#FF8904] text-white font-medium rounded-md transition duration-200"
+
+                  // className="w-full mt-3 bg-[#0a0a0a] rounded-xl"
+                >
+                  {isLoading ? (
+                    <i className="fa-solid fa-spinner fa-spin"></i>
+                  ) : (
+                    "Register"
+                  )}
+                </Button>
+                <div>
+                  <div className="flex items-center my-6">
+                    <div className="grow h-px bg-gray-300" />
+                    <span className="px-4 text-sm text-gray-500">Or</span>
+                    <div className="grow h-px bg-gray-300" />
+                  </div>
+                  {/* Social Buttons */}
+                  {/* <SocialNetworks/> */}
+                  <button className="w-full  flex items-center justify-center gap-2 border py-3 rounded-md border-gray-300  mb-3 hover:bg-gray-50">
+                    <img src={facebook} alt="Facebook" className="h-5" />
+                    Continue with Facebook
+                  </button>
+                  <button className="w-full flex items-center justify-center gap-2 border py-3 rounded-md border-gray-300  hover:bg-gray-50">
+                    <img src={google} alt="Google" className="h-5" />
+                    Continue with Google
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+
+            // mt-18 pt-2
+    // mt-5
+    // w-[90%] lg:w-[60%] mx-auto
+    // lg:w-[90%] mx-auto flex justify-between items-center
+    // w-[50%]
+    // <div className="bg-[#0E0E10]  min-h-screen  ">
+    //   <div className=" grid grid-cols-12  items-center">
+    //     <div className="hello text-white flex flex-col justify-center  col-span-7 lg:col-span-7 p-8 lg:p-16 ">
+    //       <h1>helllo</h1>
+    //       <p>
+    //         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste,
+    //         laborum!
+    //       </p>
+    //     </div>
+    //     <div className="flex items-center justify-center col-span-5 p-6">
+    //       <div className="bg-[#ededed] text-black p-4  rounded-xl w-full max-w-sm ">
+    //         <h2 className="text-white font-bold text-2xl">Register page..</h2>
+    //         {errorMsg == "user already exists." ? (
+    //           <p className="bg-red-500/70 text-white rounded-xl mt-1.5 p-2 w-[80%] mx-auto">
+    //             {errorMsg}
+    //           </p>
+    //         ) : (
+    //           ""
+    //         )}
+
+    //         <div className="container w-[80%] mx-auto">
+    //           <form onSubmit={handleSubmit(submitForm)}>
+    //             <div className="name">
+    //               <Input
+    //                 {...register("name")}
+    //                 name="name"
+    //                 type="text"
+    //                 aria-label="name"
+    //                 className="w-full my-4"
+    //                 placeholder="Enter your name"
+    //               />
+    //               {formState.errors.name ? (
+    //                 <p className="text-red-700 text-start">
+    //                   {formState.errors.name.message}
+    //                 </p>
+    //               ) : (
+    //                 ""
+    //               )}
+    //             </div>
+    //             <div className="username">
+    //               <Input
+    //                 {...register("username")}
+    //                 name="username"
+    //                 type="text"
+    //                 aria-label="username"
+    //                 className="w-full my-5"
+    //                 placeholder="Enter your username"
+    //               />
+    //               {formState.errors.username ? (
+    //                 <p className="text-red-700 text-start">
+    //                   {formState.errors.username.message}
+    //                 </p>
+    //               ) : (
+    //                 ""
+    //               )}
+    //             </div>
+    //             <div className="email">
+    //               <Input
+    //                 {...register("email")}
+    //                 name="email"
+    //                 type="email"
+    //                 aria-label="Email"
+    //                 className="w-full my-5"
+    //                 placeholder="ex@gmail.com"
+    //               />
+    //               {formState.errors.email ? (
+    //                 <p className="text-red-700 text-start">
+    //                   {formState.errors.email.message}
+    //                 </p>
+    //               ) : (
+    //                 ""
+    //               )}
+    //             </div>
+    //             <div className="password">
+    //               <Input
+    //                 {...register("password")}
+    //                 name="password"
+    //                 type="text"
+    //                 aria-label="password"
+    //                 className="w-full my-5"
+    //                 placeholder="Enter your password"
+    //               />
+    //               {formState.errors.password ? (
+    //                 <p className="text-red-700 text-start">
+    //                   {formState.errors.password.message}
+    //                 </p>
+    //               ) : (
+    //                 ""
+    //               )}
+    //             </div>
+    //             <div className="re-password">
+    //               <Input
+    //                 {...register("rePassword")}
+    //                 name="rePassword"
+    //                 type="text"
+    //                 aria-label="rePassword"
+    //                 className="w-full my-5"
+    //                 placeholder="re-write your password"
+    //               />
+    //               {formState.errors.rePassword ? (
+    //                 <p className="text-red-700 text-start">
+    //                   {formState.errors.rePassword.message}
+    //                 </p>
+    //               ) : (
+    //                 ""
+    //               )}
+    //             </div>
+    //             <div className="dateOfBirth">
+    //               <Input
+    //                 {...register("dateOfBirth")}
+    //                 name="dateOfBirth"
+    //                 type="date"
+    //                 aria-label="dateOfBirth"
+    //                 className="w-full my-5 text-[#71717a] "
+    //                 placeholder=""
+    //               />
+    //               {formState.errors.dateOfBirth ? (
+    //                 <p className="text-red-700 text-start">
+    //                   {formState.errors.dateOfBirth.message}
+    //                 </p>
+    //               ) : (
+    //                 ""
+    //               )}
+    //             </div>
+
+    //             <div className="gender-male text-start mb-0.5">
+    //               <input
+    //                 {...register("gender")}
+    //                 id="male"
+    //                 name="gender"
+    //                 value="male"
+    //                 type="radio"
+    //                 aria-label="male"
+    //                 className=" text-[#71717a]  focus:border focus:border-blue-400"
+    //               />
+    //               {formState.errors.gender ? (
+    //                 <p className="text-red-700 text-start">
+    //                   {formState.errors.gender.message}
+    //                 </p>
+    //               ) : (
+    //                 ""
+    //               )}
+    //               <label className="ms-1" htmlFor="male">
+    //                 Male
+    //               </label>
+    //             </div>
+    //             <div className="gender-female text-start">
+    //               <input
+    //                 {...register("gender")}
+    //                 id="female"
+    //                 name="gender"
+    //                 value="female"
+    //                 type="radio"
+    //                 aria-label="female"
+    //                 className=" text-[#71717a] "
+    //               />
+    //               {formState.errors.gender ? (
+    //                 <p className="text-red-700 text-start">
+    //                   {formState.errors.gender.message}
+    //                 </p>
+    //               ) : (
+    //                 ""
+    //               )}
+    //               <label className="ms-1" htmlFor="female">
+    //                 female
+    //               </label>
+    //             </div>
+
+    //             <Button type="submit" className="w-full mt-3">
+    //               {isLoading ? (
+    //                 <i className="fa-solid fa-spinner fa-spin"></i>
+    //               ) : (
+    //                 "Register"
+    //               )}
+    //             </Button>
+    //           </form>
+    //         </div>
+    //       </div>
+    //     </div>
+    //   </div>
+    // </div>
+    //  text-black p-4  rounded-xl w-full max-w-sm
+
+home
+
+            {/* <div
+          className=" bg-[#ededed] max-h-[calc(100vh-6rem)] overflow-y-auto [&::-webkit-scrollbar]:w-1.5 
+            [&::-webkit-scrollbar-button]:hidden 
+            [&::-webkit-scrollbar-thumb]:bg-gray-400 
+            [&::-webkit-scrollbar-thumb]:rounded-full"
+        >
+          <h2 className="font-bold text-xl my-3">Suggested for You</h2>
+          <p className="font-semibold text-md flex gap-1.5 my-3 text-[#4d5154]">
+            <img src={friends} alt="" className="h-5" />
+            People you may know{" "}
+          </p>
+          {followSug?.map((sugg) => {
+            return <FollowSuggCard followSugg={sugg} />;
+            // return <NotificationCard />;
+          })}
+        </div> */}
+
+        home
+{
+          /* <CreatePost /> */
+}
+{
+  /* <h2 className="font-bold text-xl my-3">Suggested for You</h2>
+          <p className="font-semibold text-md flex gap-1.5 my-3 text-[#4d5154]">
+            <img src={friends} alt="" className="h-5" />
+            People you may know{" "}
+          </p>
+          {followSug?.map((sugg) => {
+            return <FollowSuggCard followSugg={sugg} />;
+            // return <NotificationCard />;
+          })} */
+}

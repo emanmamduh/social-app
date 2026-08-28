@@ -1,0 +1,37 @@
+@import "tailwindcss";
+@plugin "daisyui";
+@import "@heroui/styles";
+/* @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap'); */
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+* {
+  font-family: "Outfit", sans-serif;
+}
+
+:root {
+  --color-base-200: white;
+}
+.demo {
+  color: #18181b;
+  color: #71717a;
+}
+.colooor {
+  background-color: #ebebec;
+  color: #71717a;
+}
+.active {
+  background-color: black;
+  color: white;
+}
+.btn {
+  border: none;
+  --btn-bg: var(--btn-color, var(--color-base-200));
+  --size: calc(var(--size-field, 0.25rem) * 9);
+}
+
+.reng {
+  background: #e4e6e7;
+}
+.card {
+  padding: 10px;
+}
