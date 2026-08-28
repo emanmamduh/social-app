@@ -67,83 +67,29 @@ function App() {
             </ProtectedRoute>
           ),
         },
-        {
-          path: "login",
-          element: (
-            <LoginProtect>
-              <Login />
-            </LoginProtect>
-          ),
-        },
-        // {
-        //   path: "login",
-        //   element: <Login />,
-        // },
-        {
-          path: "register",
-          element: (
-            <LoginProtect>
-              <Register />
-            </LoginProtect>
-          ),
-        },
+
         // { path: "register", element: <Register /> },
         { path: "*", element: <NotFound /> },
       ],
     },
+
+    {
+      path: "/login",
+      element: (
+        <LoginProtect>
+          <Login />
+        </LoginProtect>
+      ),
+    },
+    {
+      path: "/register",
+      element: (
+        <LoginProtect>
+          <Register />
+        </LoginProtect>
+      ),
+    },
   ]);
-  // let routing = createBrowserRouter([
-  //   {
-  //     path: "",
-  //     element: <Layouts />,
-  //     children: [
-  //       {
-  //         // path: "home",
-  //         index: true,
-  //         element: (
-  //           <ProtectedRoute>
-  //             <Home />
-  //           </ProtectedRoute>
-  //         ),
-  //       },
-  //       {
-  //         path: "home/postDetails/:id",
-  //         element: (
-  //           <ProtectedRoute>
-  //             <PostDetails />
-  //           </ProtectedRoute>
-  //         ),
-  //       },
-  //       {
-  //         path: "profile/:id",
-  //         element: (
-  //           <ProtectedRoute>
-  //             <Profile />
-  //           </ProtectedRoute>
-  //         ),
-  //       },
-  //       {
-  //         path: "change",
-  //         element: (
-  //           <ProtectedRoute>
-  //             <ChangePassword />
-  //           </ProtectedRoute>
-  //         ),
-  //       },
-  //       // {
-  //       //   path: "login",
-  //       //   element: <Login />,
-  //       // },
-  //       // { path: "register", element: <Register /> },
-  //       { path: "*", element: <NotFound /> },
-  //     ],
-  //   },
-  //   {
-  //     path: "login",
-  //     element: <Login />,
-  //   },
-  //   { path: "register", element: <Register /> },
-  // ]);
 
   return (
     <div>

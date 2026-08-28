@@ -3,7 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import z from "zod";
 import facebook from "../../../assets/images/facebook.png";
 import google from "../../../assets/images/google.png";
@@ -16,6 +16,7 @@ export default function Register() {
   const [isLoading, setisLoading] = useState(false);
 
   const schema = z
+
     .object({
       // name: z.string().regex(/^.{2,30}$/),
       name: z.string().min(2, "at least 2 char").max(30, "maximum 30 char"),
@@ -71,7 +72,6 @@ export default function Register() {
     axios
       .post(`https://route-posts.routemisr.com/users/signup`, values)
       .then((res) => {
-
         seterrorMsg(res.data.message);
         setisLoading(false);
 
@@ -289,7 +289,6 @@ export default function Register() {
                 <Button
                   type="submit"
                   className="w-full h-12 mt-3 bg-[#F6A940] hover:bg-blue over:bg-[#FF8904] hover:bg-[#FF8904] text-white font-medium rounded-md transition duration-200"
-
                 >
                   {isLoading ? (
                     <i className="fa-solid fa-spinner fa-spin"></i>
@@ -297,6 +296,25 @@ export default function Register() {
                     "Register"
                   )}
                 </Button>
+                <div className="text-right mt-2 me-1">
+                  <Link to="/login" className=" text-gray-500">
+                    Already have Account ?{" "}
+                    <span className=" text-[#F6A940] hover:text-[#FF8904] text-sm">
+                      Sign in
+                    </span>
+                  </Link>
+                </div>
+                {/* <Button
+                  type="submit"
+                  className="w-full h-12 mt-3 bg-[#F6A940] hover:bg-blue over:bg-[#FF8904] hover:bg-[#FF8904] text-white font-medium rounded-md transition duration-200"
+
+                >
+                  {isLoading ? (
+                    <i className="fa-solid fa-spinner fa-spin"></i>
+                  ) : (
+                    "login"
+                  )}
+                </Button> */}
                 <div>
                   <div className="flex items-center my-6">
                     <div className="grow h-px bg-gray-300" />
@@ -315,6 +333,9 @@ export default function Register() {
                   </button>
                 </div>
               </form>
+              {/* <Link to="/login">
+                   login
+              </Link> */}
             </div>
           </div>
         </div>

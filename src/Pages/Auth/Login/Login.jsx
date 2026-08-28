@@ -11,16 +11,11 @@ import facebook from "../../../assets/images/facebook.png";
 import google from "../../../assets/images/google.png";
 import SocialNetworks from "./components/SocialNetworks";
 export default function Login() {
-  // const { userToken, setToken } = useContext(UserData); //before setToken() func
   const { setToken } = useContext(UserData);
-  // useEffect(() => {
-  //   localStorage.removeItem("userToken");
-  //   setToken(null);
-  // }, []);
 
   const navigate = useNavigate();
   const [errorMsg, setErrorMsg] = useState("");
-  // const [isError, setIsError] = useState(false);
+  const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   const schema = z.object({
@@ -47,13 +42,12 @@ export default function Login() {
         `https://route-posts.routemisr.com/users/signin`,
         values,
       );
-
-
       setToken(response.data.data.token);
 
       navigate("/");
     } catch (error) {
       console.log("invalid email or password");
+      setIsError(true);
 
       setErrorMsg(error.response.data.message);
     } finally {
@@ -66,7 +60,8 @@ export default function Login() {
       {/* Left Section */}
       <div className="bg-[#0E0E10] text-white p-8 md:p-12 md:w-1/2 relative overflow-hidden rounded-br-3xl rounded-tr-3xl">
         <div className="z-10 relative">
-          <h2 className="text-2xl font-bold mb-6">Your Logo</h2>
+          {/* <h2 className="text-2xl font-bold mb-6">Your Logo</h2> */}
+          <h2 className="text-3xl font-bold mb-6">Sociam</h2>
           <div className="mt-20 md:mt-32">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">Sign in to</h1>
             <h2 className="text-2xl md:text-3xl font-semibold mb-6">
@@ -162,17 +157,6 @@ export default function Login() {
             </p>
             <h1 className="text-4xl font-bold">Sign in</h1>
           </div>
-          {/* Social Login Buttons */}
-          {/* <div className="flex flex-col space-y-4 mb-8">
-            <button className="flex items-center justify-center gap-2 h-12 border border-gray-200 rounded-md hover:bg-gray-50">
-              <img src={google} alt="google" className="h-5" />
-              Sign in with Google
-            </button>
-            <button className="flex items-center justify-center gap-2 h-12 border border-gray-200 rounded-md hover:bg-gray-50">
-              <img src={facebook} alt="google" className="h-5" />
-              Sign in with Facebook
-            </button>
-          </div> */}
           <SocialNetworks />
           <div className="flex items-center my-6">
             <div className="grow h-px bg-gray-300" />
@@ -181,6 +165,12 @@ export default function Login() {
           </div>
 
           <form onSubmit={handleSubmit(submitForm)}>
+            {isError && (
+              <div role="alert" className="alert alert-error alert-soft">
+                <span>Error! Invalid email or password</span>
+              </div>
+            )}
+
             <div className="email my-5 space-y-2">
               <Input
                 {...register("email")}

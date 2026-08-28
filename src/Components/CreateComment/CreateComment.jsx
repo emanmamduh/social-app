@@ -72,10 +72,10 @@ export default function CreateComment({ postId, userId }) {
         onSubmit={handleSubmit(handleComment)}
         className="flex  items-center gap-1 bg-re-200"
       >
-        <div className="img size-10 rounded-full overflow-hidden flex items-center justify-center mt-2 bg-green-400">
+        <div className="img size-10 rounded-full overflow-hidden flex items-center justify-center mt-2">
           <img
             src={userData?.photo}
-            alt=""
+            alt="userPhoto"
             className="w-full object-center object-cover"
           />
         </div>
