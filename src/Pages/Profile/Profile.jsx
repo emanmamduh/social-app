@@ -98,7 +98,7 @@ export default function Profile() {
               {profileData?.name}
             </h2>
             <p className="text-gray-600">{profileData?.username}</p>
-            <p className="text-sm text-gray-500 mt-2">
+            <p className="text-md text-gray-500 mt-2">
               Passionate about creating intuitive and beautiful web experiences.
             </p>
           </div>
@@ -122,7 +122,7 @@ export default function Profile() {
         </div>
       </div>
       <div className=" w-[95%] lg:w-[80%] mx-auto grid grid-cols-1 md:grid-cols-12 gap-10 relative">
-        <div className=" left-side col-span-12  md:col-span-5 sticky self-start top-15 left-0 z-30 max-h-[calc(100vh-6rem)] overflow-y-hidden hover:overflow-y-auto transition-all duration-300 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden ">
+        <div className=" left-side col-span-12  md:col-span-5 md:sticky md:self-start md:top-15 md:left-0 md:z-30 md:max-h-[calc(100vh-6rem)] md:overflow-y-hidden md:hover:overflow-y-auto transition-all duration-300 md:[scrollbar-width:none] md:[&::-webkit-scrollbar]:hidden ">
           <div className="f-child">
             <UserInfo />
           </div>

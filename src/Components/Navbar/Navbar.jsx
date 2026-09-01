@@ -45,10 +45,10 @@ export default function Navbar() {
       <div className="navbar flex  justify-between  shadow-sm px-3 lg:px-12 bg-[#ededed]   border-b border-[#c1bebe] rounded-b-xl fixed top-0 right-0 left-0 z-50">
         <div className="flex justify-between lg:w-[60%]">
           <div className="logo flex items-center gap-2">
-            <div>
+            <Link to="/">
               <img src={copyLink} alt="social-media" className="size-10" />
               <h1 className="text-2xl font-bold hidden"> Sociam</h1>
-            </div>
+            </Link>
             <BarSearch />
           </div>
 
