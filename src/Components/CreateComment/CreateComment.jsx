@@ -80,7 +80,7 @@ export default function CreateComment({ postId, userId }) {
           />
         </div>
         <div className="flex items-center mt-3 relative grow">
-          <div className="img absolute bottom-1 ">
+          <div className="img absolute bottom-2">
             <label
               htmlFor="image"
               className="cursor-pointer text-2xl text-gray-600 me-1"
@@ -96,7 +96,7 @@ export default function CreateComment({ postId, userId }) {
               // onChange={previewImg} // cannt use onChangewz register()
             />
           </div>
-          <div className="inpput flex w-full">
+          {/* <div className="inpput flex w-full">
             <input
               {...register("content")}
               type="text"
@@ -106,6 +106,25 @@ export default function CreateComment({ postId, userId }) {
             />
             <button className="h-10 px-4 text-sm bg-blue-500 border border-l-0 border-blue-500 rounded-r shadow-sm text-blue-50 hover:text-white hover:bg-blue-400 hover:border-blue-400 focus:outline-none cursor-pointer">
               <i className="fa-solid fa-paper-plane"></i>
+            </button>
+          </div> */}
+          <div className="inpput flex w-full relative">
+            <input
+              {...register("content")}
+              type="text"
+              id="input-9"
+              // className="ps-8 w-full h-10 px-3 text-sm text-gray-700 border border-r-0 rounded-r-none border-blue-500 focus:outline-none rounded shadow-sm"
+              className=" w-full h-12 px-7 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
+              placeholder={`Comment as ${userData?.name}`}
+            />
+            {/* <button className="h-10 px-4 text-sm bg-blue-500 border border-l-0 border-blue-500 rounded-r shadow-sm text-blue-50 hover:text-white hover:bg-blue-400 hover:border-blue-400 focus:outline-none cursor-pointer">
+              <i className="fa-solid fa-paper-plane"></i>
+            </button> */}
+            <button
+              className="absolute bottom-[20%] right-2 size-7 rounded-full bg-black flex justify-center items-center  hover:bg-black/80
+             transition-all duration-300"
+            >
+              <i className="fa-solid fa-paper-plane text-white text-[12px]"></i>
             </button>
           </div>
         </div>

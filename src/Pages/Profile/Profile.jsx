@@ -8,6 +8,8 @@ import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Button } from "@heroui/react";
 import UploadPhotoModal from "../../Components/ActionMenu/UploadPhotoModal";
+import UserInfo from "./components/UserInfo";
+import FriendsPreView from "./components/FriendsPreView";
 
 export default function Profile() {
   // profile img state
@@ -119,12 +121,21 @@ export default function Profile() {
           <div className="mt-8 mb-4"></div>
         </div>
       </div>
-      <div className="w-[90%] xl:max-w-1/2 mx-auto">
-        {profileyId && <CreatePost />}
-
-        {userPosts?.map((post) => {
-          return <PostCard key={post._id} post={post} />;
-        })}
+      <div className=" w-[95%] lg:w-[80%] mx-auto grid grid-cols-1 md:grid-cols-12 gap-10 relative">
+        <div className=" left-side col-span-12  md:col-span-5 sticky self-start top-15 left-0 z-30 max-h-[calc(100vh-6rem)] overflow-y-hidden hover:overflow-y-auto transition-all duration-300 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden ">
+          <div className="f-child">
+            <UserInfo />
+          </div>
+          <div className="se-child">
+            <FriendsPreView/>
+          </div>
+        </div>
+        <div className="col-span-12  md:col-span-7">
+          {profileyId && <CreatePost />}
+          {userPosts?.map((post) => {
+            return <PostCard key={post._id} post={post} />;
+          })}
+        </div>
       </div>
     </>
   );

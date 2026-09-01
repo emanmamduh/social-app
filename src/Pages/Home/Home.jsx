@@ -78,7 +78,7 @@ export default function Home() {
   return (
     <>
 
-      <div className="relative mt-20 grid sm:grid-cols-1 lg:grid-cols2 lg:grid-cols-[1fr_1.7fr] xl:grid-cols-[1.2fr_2fr_1.3fr] gap-8 mx-2">
+      <div className="relative mt-20 grid sm:grid-cols-1 lg:grid-cols-[1fr_1.7fr] xl:grid-cols-[1.2fr_2fr_1.3fr] gap-8 mx-2">
         <div className="hidden lg:block sugg my-3 ">
           {/* COMPONENT */}
           <div className="sideBar">
